@@ -2,27 +2,24 @@ package com.arkt.clother;
 
 import com.arkt.clother.Model.DarkSkyWeather;
 import com.arkt.clother.Services.ParserService;
-import com.arkt.clother.Services.Request;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 
 @Controller
-public class GreetingController {
+@RequestMapping("/")
+public class Main {
 
     private DarkSkyWeather darkSkyWeather;
     private ParserService parserService;
 
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name);
-        return "greeting";
+    @GetMapping
+    public String main(Model model) {
+
+        return "main";
     }
 
     @GetMapping("/hi")
@@ -33,6 +30,6 @@ public class GreetingController {
 
         System.out.println(darkSkyWeather.getCurrently().getTemperature());
 
-        return "greeting";
+        return "main";
     }
 }
