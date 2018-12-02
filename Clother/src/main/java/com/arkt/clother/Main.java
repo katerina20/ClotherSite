@@ -1,6 +1,7 @@
 package com.arkt.clother;
 
 import com.arkt.clother.Model.DarkSkyWeather;
+import com.arkt.clother.Services.LoadCities;
 import com.arkt.clother.Services.ParserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +29,10 @@ public class Main {
         parserService = new ParserService();
         darkSkyWeather = parserService.getWeather(String.valueOf(46.353805), String.valueOf(29.981576));
 
+        LoadCities loadCities = new LoadCities();
+
         System.out.println(darkSkyWeather.getCurrently().getTemperature());
+        System.out.println(loadCities.getLstCities().get(0));
 
         return "main";
     }
