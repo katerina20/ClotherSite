@@ -1,4 +1,4 @@
-package com.arkt.clother;
+package com.arkt.clother.Configs;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
