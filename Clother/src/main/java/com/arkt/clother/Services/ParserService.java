@@ -3,27 +3,30 @@ package com.arkt.clother.Services;
 import com.arkt.clother.Model.DarkSkyWeather;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
 
+@Service
 public class ParserService {
 
-    private DarkSkyWeather darkSkyWeather;
+    private RequestService requestService = new RequestService();
 
-    public DarkSkyWeather getWeather (String lat, String lng) throws IOException {
 
-        Request request = new Request();
-        String jsonLine = request.createRequest(lat, lng);
+    public DarkSkyWeather getWeather (String lat, String lng) {
 
-        Gson gson = new Gson();
-        Type mType = new TypeToken<DarkSkyWeather>(){}.getType();
-        darkSkyWeather = gson.fromJson(jsonLine, mType);
+        try {
+            String jsonLine = requestService.createRequest(lat, lng);
 
-        return darkSkyWeather;
+            Gson gson = new Gson();
+            Type mType = new TypeToken<DarkSkyWeather>(){}.getType();
+
+            return gson.fromJson(jsonLine, mType);
+
+        } catch (IOException e) {
+            System.out.println("Exception: " + e);
+            return null;
+        }
     }
-
-
-
-
 }

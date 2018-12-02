@@ -3,9 +3,7 @@ package com.arkt.clother.Model;
 import com.arkt.clother.Model.Currently.Currently;
 import com.arkt.clother.Model.Daily.Daily;
 import com.arkt.clother.Model.Hourly.Hourly;
-
 import java.io.Serializable;
-import java.util.List;
 
 public class DarkSkyWeather implements Serializable {
 
