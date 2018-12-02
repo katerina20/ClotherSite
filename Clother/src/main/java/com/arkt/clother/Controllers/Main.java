@@ -5,6 +5,8 @@ import com.arkt.clother.Model.Daily.DataForWeek;
 import com.arkt.clother.Model.DarkSkyWeather;
 import com.arkt.clother.Model.Hourly.DataForDay;
 import com.arkt.clother.Services.ParserService;
+import com.arkt.clother.Services.UnixTimeStamp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class Main {
+
+    @Autowired
+    UnixTimeStamp unixTimeStamp;
 
     private ParserService parserService;
     private DarkSkyWeather darkSkyWeather;
@@ -32,6 +37,7 @@ public class Main {
         List<DataForDay> hourlies = darkSkyWeather.getHourly().getDataHourlyList();
         List<DataForWeek> daily = darkSkyWeather.getDaily().getDataHourlyList();
 
+        model.addAttribute("currentlyTime", UnixTimeStamp.unixTimeStampToCurrentlyDate(currently.getTime()));
         model.addAttribute("currently", currently);
         model.addAttribute("hourlies", hourlies);
         model.addAttribute("daily", daily);
