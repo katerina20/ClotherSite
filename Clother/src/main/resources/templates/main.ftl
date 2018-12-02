@@ -65,8 +65,8 @@
             </div>
             <div class="col-md-4 col-lg-3" style="height:682px;background-color:rgba(37,37,37,0.5);padding:10px;">
                 <h1 class="text-center text-light">Odessa</h1>
-                <p class="text-center text-light">${currentlyTime}</p>
-                <h1 class="text-center text-light" style="font-size:100px;">${currently.getTemperature()}ºC</h1>
+                <p class="text-center text-light">${currently.getTime()}</p>
+                <h1 class="text-center text-light" style="font-size:100px;">${currently.getTemperature()}º</h1>
                 <p class="text-center text-light">Feels like ${currently.getApparentTemperature()}º</p>
                 <p class="text-center text-light">${currently.getSummary()}</p>
             </div>

@@ -1,6 +1,10 @@
 package com.arkt.clother.Model.Currently;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class Currently implements Serializable {
 
@@ -26,8 +30,11 @@ public class Currently implements Serializable {
         this.windSpeed = windSpeed;
     }
 
-    public double getTime() {
-        return time;
+    public String getTime() {
+        DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM", Locale.US);
+        Date date = new Date();
+        date.setTime((long)time*1000);
+        return dateFormat.format(date);
     }
 
     public String getSummary() {
