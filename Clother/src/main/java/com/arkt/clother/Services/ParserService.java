@@ -11,18 +11,21 @@ import java.lang.reflect.Type;
 @Service
 public class ParserService {
 
-    private RequestService requestService = new RequestService();
+    private RequestService requestService;
+    private DarkSkyWeather darkSkyWeather;
 
 
     public DarkSkyWeather getWeather (String lat, String lng) {
 
         try {
+            requestService = new RequestService();
             String jsonLine = requestService.createRequest(lat, lng);
 
             Gson gson = new Gson();
             Type mType = new TypeToken<DarkSkyWeather>(){}.getType();
+            darkSkyWeather = gson.fromJson(jsonLine, mType);
 
-            return gson.fromJson(jsonLine, mType);
+            return darkSkyWeather;
 
         } catch (IOException e) {
             System.out.println("Exception: " + e);
