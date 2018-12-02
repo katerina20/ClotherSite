@@ -1,6 +1,9 @@
 package com.arkt.clother.Model.Hourly;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class DataForDay implements Serializable {
 
@@ -18,8 +21,13 @@ public class DataForDay implements Serializable {
         this.precipProbability = precipProbability;
     }
 
-    public double getTime() {
-        return time;
+    public String getTime() {
+
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        Date date = new Date();
+        date.setTime((long)time*1000);
+        return dateFormat.format(date);
+
     }
 
     public String getIcon() {
