@@ -1,6 +1,8 @@
 package com.arkt.clother.Controllers;
 
 import com.arkt.clother.Model.Currently.Currently;
+import com.arkt.clother.Model.Daily.Daily;
+import com.arkt.clother.Model.Hourly.Hourly;
 import com.arkt.clother.Services.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +20,16 @@ public class Main {
     @GetMapping
     public String main(Model model) {
 
-        Currently currently = weatherService.getCurrentlyWeather(46.353805, 29.981576);
-        System.out.println(currently.getTemperature());
+        Double latitude = 46.353805;
+        Double longitude = 29.981576;
+
+        Currently currently = weatherService.getCurrentlyWeather(latitude, longitude);
+        Hourly hourly = weatherService.getHourlyWeaher(latitude, longitude);
+        Daily daily = weatherService.getDailyWeather(latitude, longitude);
+
+        model.addAttribute("currently", currently);
+        model.addAttribute("hourly", hourly);
+        model.addAttribute("daily", daily);
 
         return "main";
     }
