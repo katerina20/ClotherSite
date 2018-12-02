@@ -1,21 +1,23 @@
 package com.arkt.clother.Controllers;
 
 import com.arkt.clother.Model.Currently.Currently;
-import com.arkt.clother.Model.Daily.Daily;
-import com.arkt.clother.Model.Hourly.Hourly;
-import com.arkt.clother.Services.WeatherService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.arkt.clother.Model.Daily.DataForWeek;
+import com.arkt.clother.Model.DarkSkyWeather;
+import com.arkt.clother.Model.Hourly.DataForDay;
+import com.arkt.clother.Services.ParserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/")
 public class Main {
 
-    @Autowired
-    private WeatherService weatherService;
+    private ParserService parserService;
+    private DarkSkyWeather darkSkyWeather;
 
     @GetMapping
     public String main(Model model) {
@@ -23,12 +25,15 @@ public class Main {
         Double latitude = 46.353805;
         Double longitude = 29.981576;
 
-        Currently currently = weatherService.getCurrentlyWeather(latitude, longitude);
-        Hourly hourly = weatherService.getHourlyWeaher(latitude, longitude);
-        Daily daily = weatherService.getDailyWeather(latitude, longitude);
+        parserService = new ParserService();
+        darkSkyWeather = parserService.getWeather(String.valueOf(latitude), String.valueOf(longitude));
+
+        Currently currently = darkSkyWeather.getCurrently();
+        List<DataForDay> hourlies = darkSkyWeather.getHourly().getDataHourlyList();
+        List<DataForWeek> daily = darkSkyWeather.getDaily().getDataHourlyList();
 
         model.addAttribute("currently", currently);
-        model.addAttribute("hourly", hourly);
+        model.addAttribute("hourlies", hourlies);
         model.addAttribute("daily", daily);
 
         return "main";
