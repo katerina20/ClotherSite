@@ -35,7 +35,28 @@ public class Main {
         model.addAttribute("currently", currently);
         model.addAttribute("hourlies", hourlies);
         model.addAttribute("daily", daily);
+        model.addAttribute("iconMan", getIconManString(currently.getApparentTemperature()));
 
         return "main";
+    }
+
+    private String getIconManString (int t){
+
+        if (t >= 25){
+            return "firstType";
+        }
+        else if (t >= 20){
+            return "secondType";
+        }
+        else if (t >= 15){
+            return "thirdType";
+        }
+        else if (t >= 5){
+            return "forthType";
+        }
+        else if (t >= -50){
+            return "fifthType";
+        }
+        return "firstType";
     }
 }
