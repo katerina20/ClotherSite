@@ -1,5 +1,7 @@
 package com.arkt.clother.Model.Hourly;
 
+import com.arkt.clother.Services.TimeService;
+
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,10 +24,8 @@ public class DataForDay implements Serializable {
     }
 
     public String getTime() {
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-        Date date = new Date();
-        date.setTime((long)time*1000);
-        return dateFormat.format(date);
+
+        return TimeService.unixTimeStampToTime(this.time);
     }
 
     public String getIcon() {

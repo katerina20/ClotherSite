@@ -98,8 +98,8 @@
                 <p class="text-center text-light">${currently.getSummary()}</p>
                 <p class="text-center text-light">${currently.getPressure()}</p>
                 <p class="text-center text-light">${currently.getWindSpeed()}</p>
-                <p class="text-center text-light">${daily.get(0).getSunriseTime()}</p>
-                <p class="text-center text-light">${daily.get(0).getSunsetTime()}</p>
+                <p class="text-center text-light">${daily[0].getSunriseTime()}</p>
+                <p class="text-center text-light">${daily[0].getSunsetTime()}</p>
 
             </div>
         </div>

@@ -1,5 +1,7 @@
 package com.arkt.clother.Model.Daily;
 
+import com.arkt.clother.Services.TimeService;
+
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -27,23 +29,19 @@ public class DataForWeek implements Serializable {
     }
 
     public String getTime() {
-        DateFormat dateFormat = new SimpleDateFormat("EEE", Locale.US);
-        Date date = new Date();
-        date.setTime((long)time*1000);
-        return dateFormat.format(date);
+        return TimeService.unixTimeStampToDayOfWeek(this.time);
     }
 
     public String getIcon() {
         return icon;
     }
 
-    public double getSunriseTime() {
-
-        return sunriseTime;
+    public String getSunriseTime() {
+        return TimeService.unixTimeStampToTime(this.sunriseTime);
     }
 
-    public double getSunsetTime() {
-        return sunsetTime;
+    public String getSunsetTime() {
+        return TimeService.unixTimeStampToTime(this.sunsetTime);
     }
 
     public int getTemperatureHigh() {

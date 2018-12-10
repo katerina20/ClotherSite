@@ -9,7 +9,8 @@ public class TimeService {
 
     public static String unixTimeStampToTime(double unixTimeStamp){
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-
+        Date date = new Date();
+        date.setTime((long)unixTimeStamp*1000);
         return dateFormat.format(date);
     }
 
@@ -27,8 +28,7 @@ public class TimeService {
 
     private void convert (DateFormat dateFormat){
 
-        Date date = new Date();
-        date.setTime((long)unixTimeStamp*1000);
+
     }
 
 
