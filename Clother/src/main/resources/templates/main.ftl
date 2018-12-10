@@ -30,16 +30,21 @@
             <select data-live-search="true" data-live-search-style="startsWith"
                     class="selectpicker" name="citiesSelect"
                     onchange="document.location = this.options[this.selectedIndex].value">
+                <option value="">Chose place...</option>
                 <option value="Odessa">Odessa</option>
                 <option value="Lviv">Lviv</option>
                 <option value="Kiev">Kiev</option>
-                <option value="Los Angeles">Los Angeles</option>
+                <option value="Los_Angeles">Los Angeles</option>
                 <option value="London">London</option>
                 <option value="Moscow">Moscow</option>
-                <option value="New York">New York</option>
-                <option value="San Francisco">San Francisco</option>
+                <option value="New_York">New York</option>
+                <option value="San_Francisco">San Francisco</option>
                 <option value="Milan">Milan</option>
-                <option value="Chacago">Chicago</option>
+                <option value="Chicago">Chicago</option>
+
+                <#--<#list 0..cities.size() as i>-->
+                    <#--<option value="${cities.get(i)}">${cities.get(i)}</option>-->
+                <#--</#list>-->
             </select>
         </div>
     </div>

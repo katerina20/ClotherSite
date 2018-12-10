@@ -3,12 +3,14 @@ package com.arkt.clother.Services;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
 
+@Service
 public class LoadCities {
 
     private List<String> lstCities;
