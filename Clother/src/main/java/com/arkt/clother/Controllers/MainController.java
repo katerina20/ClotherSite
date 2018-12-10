@@ -14,7 +14,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/")
-public class Main {
+public class MainController {
 
     private ParserService parserService;
     private DarkSkyWeather darkSkyWeather;
