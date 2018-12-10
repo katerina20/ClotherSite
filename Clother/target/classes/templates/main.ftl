@@ -101,6 +101,11 @@
                 <h1 class="text-center text-light" style="font-size:100px;">${currently.getTemperature()}º</h1>
                 <p class="text-center text-light">Feels like ${currently.getApparentTemperature()}º</p>
                 <p class="text-center text-light">${currently.getSummary()}</p>
+                <p class="text-center text-light">${currently.getPressure()}</p>
+                <p class="text-center text-light">${currently.getWindSpeed()}</p>
+                <p class="text-center text-light">${daily[0].getSunriseTime()}</p>
+                <p class="text-center text-light">${daily[0].getSunsetTime()}</p>
+
             </div>
         </div>
     </div>
