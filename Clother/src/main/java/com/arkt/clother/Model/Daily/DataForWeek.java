@@ -38,6 +38,7 @@ public class DataForWeek implements Serializable {
     }
 
     public double getSunriseTime() {
+
         return sunriseTime;
     }
 

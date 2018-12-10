@@ -22,12 +22,10 @@ public class DataForDay implements Serializable {
     }
 
     public String getTime() {
-
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
         Date date = new Date();
         date.setTime((long)time*1000);
         return dateFormat.format(date);
-
     }
 
     public String getIcon() {
