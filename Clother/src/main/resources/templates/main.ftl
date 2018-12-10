@@ -59,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex flex-column justify-content-center" style="margin-left:60px;height:630px;"><img src="/static/assets/img/humans/cold.png" style="width:130px;"></div>
+                    <div class="d-flex flex-column justify-content-center" style="margin-left:60px;height:630px;"><img src="/static/assets/img/humans/${iconMan}.png" style="width:130px;"></div>
 
                 </div>
             </div>
