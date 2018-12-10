@@ -8,19 +8,23 @@ import com.arkt.clother.Services.ParserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
-public class Main {
+public class SearchController {
 
     private ParserService parserService;
     private DarkSkyWeather darkSkyWeather;
 
-    @GetMapping
-    public String main(Model model) {
+    @GetMapping("{city}")
+    public String search(Model model, @PathVariable String city) {
+
+        city.toString();
+
+
+
 
         Double latitude = 46.4288699298;
         Double longitude = 30.7232187;
@@ -35,7 +39,6 @@ public class Main {
         model.addAttribute("currently", currently);
         model.addAttribute("hourlies", hourlies);
         model.addAttribute("daily", daily);
-
         return "main";
     }
 }
