@@ -1,13 +1,13 @@
 package com.arkt.clother.Model;
 
-public class City {
+public class CityData {
     private String cityName;
     private double lng;
     private double lat;
     private String country;
 
 
-    public City(String cityName, double lng, double lat, String country) {
+    public CityData(String cityName, double lng, double lat, String country) {
         this.cityName = cityName;
         this.lng = lng;
         this.lat = lat;
