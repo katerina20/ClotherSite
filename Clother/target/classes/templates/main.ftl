@@ -31,16 +31,18 @@
                     class="selectpicker" name="citiesSelect"
                     onchange="document.location = this.options[this.selectedIndex].value">
                 <option value="">Chose place...</option>
-                <option value="Odessa">Odessa</option>
-                <option value="Lviv">Lviv</option>
-                <option value="Kiev">Kiev</option>
-                <option value="Los_Angeles">Los Angeles</option>
-                <option value="London">London</option>
-                <option value="Moscow">Moscow</option>
-                <option value="New_York">New York</option>
-                <option value="San_Francisco">San Francisco</option>
-                <option value="Milan">Milan</option>
-                <option value="Chicago">Chicago</option>
+                <option value="Odessa,Ukraine">Odessa</option>
+                <option value="Lviv,Ukraine">Lviv</option>
+                <option value="Kiev,Ukraine">Kiev</option>
+                <option value="Los_Angeles,USA">Los Angeles</option>
+                <option value="London,UK">London</option>
+                <option value="Moscow,Russia">Moscow</option>
+                <option value="New_York,USA">New York</option>
+                <option value="San_Francisco,USA">San Francisco</option>
+                <option value="Milan,Italy">Milan</option>
+                <option value="Chicago,USA">Chicago</option>
+                <option value="Bangkok,Thailand">Bangkok</option>
+                <option value="Hurghada,Egypt">Hurghada</option>
 
                 <#--<#list 0..cities.size() as i>-->
                     <#--<option value="${cities.get(i)}">${cities.get(i)}</option>-->
@@ -92,11 +94,11 @@
                         </div>
                     </div>
                     <div class="d-flex flex-column justify-content-center" style="margin-left:60px;height:630px;"><img
-                            src="/static/assets/img/humans/cold.png" style="width:130px;"></div>
+                            src="/static/assets/img/humans/${iconMan}.png" style="width:130px;"></div>
                 </div>
             </div>
             <div class="col-md-4 col-lg-3" style="height:682px;background-color:rgba(37,37,37,0.5);padding:10px;">
-                <h1 class="text-center text-light">Odessa</h1>
+                <h1 class="text-center text-light">${cityName}</h1>
                 <p class="text-center text-light">${currently.getTime()}</p>
                 <h1 class="text-center text-light" style="font-size:100px;">${currently.getTemperature()}º</h1>
                 <p class="text-center text-light">Feels like ${currently.getApparentTemperature()}º</p>

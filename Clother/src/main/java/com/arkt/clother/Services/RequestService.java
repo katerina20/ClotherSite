@@ -20,7 +20,7 @@ public class RequestService {
 
 
     public String createRequest (String lat, String lng) throws IOException {
-        String link = "https://api.darksky.net/forecast/" + API_KEY + "/" + lat + "," + lng + "?exclude=alerts,flags&units=auto";
+        String link = "https://api.darksky.net/forecast/" + API_KEY + "/" + lat + "," + lng + "?exclude=alerts,flags&units=si";
 
         url = new URL(link);
         connection = (HttpURLConnection) url.openConnection();
