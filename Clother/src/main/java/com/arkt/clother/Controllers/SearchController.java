@@ -38,7 +38,6 @@ public class SearchController {
 
         Double latitude = coordinates.get(1);
         Double longitude = coordinates.get(0);
-        System.out.println("Lat: " + latitude + " lon: " + longitude);
 
         darkSkyWeather = parserService.getWeather(String.valueOf(latitude), String.valueOf(longitude));
 
