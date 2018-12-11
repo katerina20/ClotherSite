@@ -52,4 +52,21 @@ public class ParserService {
             return null;
         }
     }
+
+    public String getCityNameByCoordinates (String latitude, String longitude) {
+        try {
+            requestService = new RequestService();
+            String jsonLine = requestService.createRequestToGetCityNameByCoordinates(latitude, longitude);
+
+            Gson gson = new Gson();
+            Type mType = new TypeToken<CityModel>(){}.getType();
+            cityModel = gson.fromJson(jsonLine, mType);
+
+            return cityModel.getFeatures().get(0).getPlaceName();
+
+        } catch (IOException e) {
+            System.out.println("Exception: " + e);
+            return null;
+        }
+    }
 }

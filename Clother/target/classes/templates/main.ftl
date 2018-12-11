@@ -44,6 +44,27 @@
                 <option value="Bangkok,Thailand">Bangkok</option>
                 <option value="Hurghada,Egypt">Hurghada</option>
             </select>
+            
+            <button onclick="getLocation()" >
+                <img src="/static/assets/img/location_icon.svg" alt="location-icon" width="20px">
+            </button>
+            <p id="error"></p>
+
+            <script>
+                let x = document.getElementById("error");
+
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } else {
+                        x.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+
+                function showPosition(position) {
+                    location.href = '/location/' + position.coords.latitude + ',' + position.coords.longitude;
+                }
+            </script>
         </div>
     </div>
 </nav>
