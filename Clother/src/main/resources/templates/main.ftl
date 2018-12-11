@@ -71,7 +71,7 @@
 <div>
     <div class="container flex-row">
         <div class="row" style="padding:25px;">
-            <div class="col-md-8 col-lg-9" style="padding:25px;background-color:rgba(37,37,37,0.5);height:682px;">
+            <div class="col-md-8 col-lg-9" style="padding:25px;background-color:rgba(37,37,37,0.8);height:682px;">
                 <div class="d-flex flex-row flex-fill justify-content-between align-items-center align-content-center"
                      style="overflow: visible">
                     <div class="d-flex flex-column flex-fill justify-content-between" style="width:390px;height:631px;">
