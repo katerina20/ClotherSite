@@ -44,9 +44,9 @@
                 <option value="Bangkok,Thailand">Bangkok</option>
                 <option value="Hurghada,Egypt">Hurghada</option>
 
-                <#--<#list 0..cities.size() as i>-->
-                    <#--<option value="${cities.get(i)}">${cities.get(i)}</option>-->
-                <#--</#list>-->
+            <#--<#list 0..cities.size() as i>-->
+            <#--<option value="${cities.get(i)}">${cities.get(i)}</option>-->
+            <#--</#list>-->
             </select>
         </div>
     </div>
@@ -65,7 +65,11 @@
                                      id="hourly">
                                     <#list hourlies as hour>
                                         <div class="d-flex flex-column align-items-center justify-content-between">
-                                            <p class="text-light">${hour.getTime()}</p>
+                                            <#if hour == hourlies[0]>
+                                                <p class="text-light">Now</p>
+                                            <#else>
+                                                <p class="text-light">${hour.getTime()}</p>
+                                            </#if>
                                             <img src="/static/assets/img/icons/${hour.getIcon()}.png" width="70px"
                                                  alt="${hour.getIcon()}">
                                             <p class="text-light">${hour.getTemperature()}ºC</p>
@@ -80,10 +84,16 @@
                                  id="daily">
                                 <#list daily as day>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <p class="text-light" style="width: 70px">${day.getTime()}</p>
+                                        <#if day == daily[0]>
+                                            <p class="text-light" style="width: 70px">Today</p>
+                                        <#else>
+                                            <p class="text-light" style="width: 70px">${day.getTime()}</p>
+                                        </#if>
                                         <img src="/static/assets/img/icons/${day.getIcon()}.png" width="35px"
                                              alt="${day.getIcon()}">
-                                        <p class="text-light">${day.getPrecipProbability() * 100}%</p>
+                                        <div style="width: 50px; text-align: right;">
+                                            <p class="text-light">${day.getPrecipProbability() * 100}%</p>
+                                        </div>
                                         <div class="d-flex justify-content-between" style="width: 70px">
                                             <p class="text-light">${day.getTemperatureHigh()}↑</p>
                                             <p class="text-light">${day.getTemperatureLow()}↓</p>
