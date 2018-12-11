@@ -24,6 +24,23 @@ public class SearchController {
         return "redirect:/Odessa,Ukraine";
     }
 
+    @GetMapping("location/{latitude},{longitude}")
+    public String currentLocation(Model model, @PathVariable String latitude, @PathVariable String longitude) {
+
+        parserService = new ParserService();
+        String cityName = parserService.getCityNameByCoordinates(latitude, longitude);
+
+        cityName = cityName.replaceAll(" ", "");
+        String[] parts = cityName.split(",");
+
+        if (parts.length >= 3) {
+            System.out.println("Redirect on current location");
+            return "redirect:/" + parts[parts.length - 3] + "," + parts[parts.length - 1];
+        } else {
+            return "redirect:/Odessa,Ukraine";
+        }
+    }
+
     @GetMapping("{city}")
     public String search(Model model, @PathVariable String city) {
 
@@ -57,21 +74,17 @@ public class SearchController {
         return "main";
     }
 
-    private String getIconManString (int t){
+    private String getIconManString(int t) {
 
-        if (t >= 25){
+        if (t >= 25) {
             return "firstType";
-        }
-        else if (t >= 20){
+        } else if (t >= 20) {
             return "secondType";
-        }
-        else if (t >= 15){
+        } else if (t >= 15) {
             return "thirdType";
-        }
-        else if (t >= 5){
+        } else if (t >= 5) {
             return "forthType";
-        }
-        else if (t >= -50){
+        } else if (t >= -50) {
             return "fifthType";
         }
         return "firstType";

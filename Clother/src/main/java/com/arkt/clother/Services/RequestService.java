@@ -61,4 +61,26 @@ public class RequestService {
         return response.toString();
     }
 
+    public String createRequestToGetCityNameByCoordinates (String latitude, String longitude) throws IOException {
+        String link = "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
+                longitude + "," + latitude +
+                ".json?language=en&types=poi&access_token=" + TOKEN;
+
+        url = new URL(link);
+        connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+
+        InputStream input = connection.getInputStream();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+        StringBuilder response = new StringBuilder();
+        String line;
+
+        while ((line = reader.readLine()) != null) {
+            response.append(line);
+        }
+        input.close();
+
+        return response.toString();
+    }
 }
