@@ -57,15 +57,16 @@ public class Currently implements Serializable {
         return (int)apparentTemperature;
     }
 
-    public double getHumidity() {
-        return humidity;
+    public int getHumidity() {
+        humidity *= 100;
+        return (int)humidity;
     }
 
-    public double getPressure() {
-        return pressure;
+    public int getPressure() {
+        return (int)pressure;
     }
 
-    public double getWindSpeed() {
-        return windSpeed;
+    public int getWindSpeed() {
+        return (int)windSpeed;
     }
 }
