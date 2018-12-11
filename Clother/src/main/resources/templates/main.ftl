@@ -76,7 +76,10 @@
                      style="overflow: visible">
                     <div class="d-flex flex-column flex-fill justify-content-between" style="width:390px;height:631px;">
                         <div class="d-flex flex-column" style="margin-bottom:50px;">
-                            <h3 class="text-light">Hourly</h3>
+                            <h3 class="text-light" style="margin-bottom: 0">Hourly</h3>
+                            <div style="margin-bottom: 10px;">
+                                <hr align="center" width="95%" size="50" color="#dddddd" />
+                            </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex flex-row justify-content-between align-items-between align-content-center"
                                      id="hourly">
@@ -96,7 +99,10 @@
                             </div>
                         </div>
                         <div class="d-flex flex-column">
-                            <h3 class="text-light">Daily</h3>
+                            <h3 class="text-light" style="margin-bottom: 0">Daily</h3>
+                            <div style="margin-bottom: 10px;">
+                                <hr align="center" width="95%" size="50" color="#dddddd" />
+                            </div>
                             <div class="d-flex flex-column justify-content-between align-items-stretch align-content-center"
                                  id="daily">
                                 <#list daily as day>
