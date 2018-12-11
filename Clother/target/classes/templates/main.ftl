@@ -15,7 +15,7 @@
 
 </head>
 
-<body style="font-size:25px;background-image:url(/static/assets/img/backgrounds/${currently.icon}.jpg);background-size:cover, cover;">
+<body style="font-size:25px;background-image:url(/static/assets/img/backgrounds/${currently.icon}.jpg);background-size:cover;">
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-search"
      style="background-color:rgba(37,37,37,0.5);color:rgb(255,255,255);">
     <div class="container">
@@ -71,7 +71,7 @@
 <div>
     <div class="container flex-row">
         <div class="row" style="padding:25px;">
-            <div class="col-md-8 col-lg-9" style="padding:25px;background-color:rgba(37,37,37,0.8);height:682px;">
+            <div class="col-md-8 col-lg-9" style="padding:25px;background-color:rgba(37,37,37,0.85);height:682px;">
                 <div class="d-flex flex-row flex-fill justify-content-between align-items-center align-content-center"
                      style="overflow: visible">
                     <div class="d-flex flex-column flex-fill justify-content-between" style="width:390px;height:631px;">
@@ -83,9 +83,9 @@
                                     <#list hourlies as hour>
                                         <div class="d-flex flex-column align-items-center justify-content-between">
                                             <#if hour == hourlies[0]>
-                                                <p class="text-light">Now</p>
+                                                <p class="text-light"style="font-size: 20px">Now</p>
                                             <#else>
-                                                <p class="text-light">${hour.getTime()}</p>
+                                                <p class="text-light" style="font-size: 20px">${hour.getTime()}</p>
                                             </#if>
                                             <img src="/static/assets/img/icons/${hour.getIcon()}.png" width="70px"
                                                  alt="${hour.getIcon()}">
@@ -115,9 +115,9 @@
                                 <#list daily as day>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <#if day == daily[0]>
-                                            <p class="text-light" style="width: 70px">Today</p>
+                                            <p class="text-light" style="width: 70px; font-size: 20px">Today</p>
                                         <#else>
-                                            <p class="text-light" style="width: 70px">${day.getTime()}</p>
+                                            <p class="text-light" style="width: 70px; font-size: 20px">${day.getTime()}</p>
                                         </#if>
                                         <img src="/static/assets/img/icons/${day.getIcon()}.png" width="35px"
                                              alt="${day.getIcon()}">
