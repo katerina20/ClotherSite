@@ -15,7 +15,7 @@
 
 </head>
 
-<body style="font-size:25px;background-image:url(/static/assets/img/mountain_background.jpg);background-size:cover;">
+<body style="font-size:25px;background-image:url(/static/assets/img/backgrounds/${currently.icon}.jpg);background-size:cover;">
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-search"
      style="background-color:rgba(37,37,37,0.5);color:rgb(255,255,255);">
     <div class="container">
