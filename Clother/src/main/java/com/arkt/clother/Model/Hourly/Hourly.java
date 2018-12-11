@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Hourly implements Serializable {
 
+    private String summary;
     private List<DataForDay> data;
 
     public Hourly(List<DataForDay> data) {
@@ -13,5 +14,9 @@ public class Hourly implements Serializable {
 
     public List<DataForDay> getDataHourlyList() {
         return data;
+    }
+
+    public String getSummary() {
+        return summary;
     }
 }

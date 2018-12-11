@@ -52,6 +52,8 @@ public class SearchController {
         model.addAttribute("hourlies", hourlies);
         model.addAttribute("daily", daily);
         model.addAttribute("iconMan", getIconManString(currently.getApparentTemperature()));
+        model.addAttribute("daySummary", darkSkyWeather.getHourly().getSummary());
+
         return "main";
     }
 
