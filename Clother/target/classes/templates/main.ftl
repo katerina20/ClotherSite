@@ -43,10 +43,6 @@
                 <option value="Chicago,USA">Chicago</option>
                 <option value="Bangkok,Thailand">Bangkok</option>
                 <option value="Hurghada,Egypt">Hurghada</option>
-
-                <#--<#list 0..cities.size() as i>-->
-                <#--<option value="${cities.get(i)}">${cities.get(i)}</option>-->
-                <#--</#list>-->
             </select>
         </div>
     </div>
@@ -65,10 +61,14 @@
                                      id="hourly">
                                     <#list hourlies as hour>
                                         <div class="d-flex flex-column align-items-center justify-content-between">
-                                        <p class="text-light">${hour.getTime()}</p>
-                                    <img src="/static/assets/img/icons/${hour.getIcon()}.png" width="70px"
-                                    alt="${hour.getIcon()}">
-                                        <p class="text-light">${hour.getTemperature()}ºC</p>
+                                            <#if hour == hourlies[0]>
+                                                <p class="text-light">Now</p>
+                                            <#else>
+                                                <p class="text-light">${hour.getTime()}</p>
+                                            </#if>
+                                            <img src="/static/assets/img/icons/${hour.getIcon()}.png" width="70px"
+                                                 alt="${hour.getIcon()}">
+                                            <p class="text-light">${hour.getTemperature()}ºC</p>
                                         </div>
                                     </#list>
                                 </div>
@@ -80,21 +80,27 @@
                                  id="daily">
                                 <#list daily as day>
                                     <div class="d-flex justify-content-between align-items-center">
-                                    <p class="text-light" style="width: 70px">${day.getTime()}</p>
-                                <img src="/static/assets/img/icons/${day.getIcon()}.png" width="35px"
-                                alt="${day.getIcon()}">
-                                    <p class="text-light">${day.getPrecipProbability() * 100}%</p>
-                                    <div class="d-flex justify-content-between" style="width: 70px">
-                                    <p class="text-light">${day.getTemperatureHigh()}↑</p>
-                                    <p class="text-light">${day.getTemperatureLow()}↓</p>
-                                    </div>
+                                        <#if day == daily[0]>
+                                            <p class="text-light" style="width: 70px">Today</p>
+                                        <#else>
+                                            <p class="text-light" style="width: 70px">${day.getTime()}</p>
+                                        </#if>
+                                        <img src="/static/assets/img/icons/${day.getIcon()}.png" width="35px"
+                                             alt="${day.getIcon()}">
+                                        <div style="width: 50px; text-align: right;">
+                                            <p class="text-light">${day.getPrecipProbability() * 100}%</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between" style="width: 70px">
+                                            <p class="text-light">${day.getTemperatureHigh()}↑</p>
+                                            <p class="text-light">${day.getTemperatureLow()}↓</p>
+                                        </div>
                                     </div>
                                 </#list>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex flex-column justify-content-center" style="margin-left:60px;height:630px;"><img
-                                src="/static/assets/img/humans/${iconMan}.png" style="width:130px;"></div>
+                            src="/static/assets/img/humans/${iconMan}.png" style="width:130px;"></div>
                 </div>
             </div>
             <div class="col-md-4 col-lg-3" style="height:682px;background-color:rgba(37,37,37,0.5);padding:10px;">
@@ -103,11 +109,13 @@
                 <h1 class="text-center text-light" style="font-size:100px;">${currently.getTemperature()}º</h1>
                 <p class="text-center text-light">Feels like ${currently.getApparentTemperature()}º</p>
                 <div class="d-flex justify-content-center align-items-center">
-                    <img src="/static/assets/img/icons/${currently.getIcon()}.png" width="70px" alt="${currently.getIcon()}">
+                    <img src="/static/assets/img/icons/${currently.getIcon()}.png" width="70px"
+                         alt="${currently.getIcon()}">
                 </div>
 
                 <p class="text-center text-light" style="font-size:20px;">${daySummary}</p>
-                <div class="d-flex flex-column justify-content-between align-items-stretch align-content-center" style="padding: 10px;">
+                <div class="d-flex flex-column justify-content-between align-items-stretch align-content-center"
+                     style="padding: 10px;">
                     <div class="d-flex justify-content-between align-items-center">
                         <p class="text-center text-light" style="font-size:20px;">Pressure:</p>
                         <p class="text-center text-light" style="font-size:20px;">${currently.getPressure()} mb</p>
