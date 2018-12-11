@@ -96,9 +96,22 @@
                             </div>
                         </div>
                         <div class="d-flex flex-column">
-                            <h3 class="text-light">Daily</h3>
+                            <h3 class="text-light">For week</h3>
                             <div class="d-flex flex-column justify-content-between align-items-stretch align-content-center"
                                  id="daily">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="text-light" style="font-size:16px; width: 70px">Day</p>
+                                    <p class="text-light" style="font-size:16px; width: 70px">Sky</p>
+                                    <div style="width: 50px; text-align: right;">
+                                        <p class="text-light" style="font-size:16px; width: 70px">Precipitation</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between" style="font-size:16px; width: 70px">
+                                        <p class="text-light">High↑/Low↓</p>
+                                        <p class="text-light"></p>
+                                    </div>
+                                </div>
+
+
                                 <#list daily as day>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <#if day == daily[0]>
