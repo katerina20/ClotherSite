@@ -45,8 +45,8 @@
                 <option value="Hurghada,Egypt">Hurghada</option>
             </select>
             
-            <button onclick="getLocation()" >
-                <img src="/static/assets/img/location_icon.svg" alt="location-icon" width="20px">
+            <button onclick="getLocation()" style="background-color: transparent; border: none;">
+                <img src="/static/assets/img/location_icon.svg" alt="location-icon" width="20px" >
             </button>
             <p id="error"></p>
 
@@ -99,14 +99,10 @@
                             </div>
                         </div>
                         <div class="d-flex flex-column">
-<<<<<<< HEAD
-                            <h3 class="text-light">For week</h3>
-=======
-                            <h3 class="text-light" style="margin-bottom: 0">Daily</h3>
+                            <h3 class="text-light" style="margin-bottom: 0">For week</h3>
                             <div style="margin-bottom: 10px;">
                                 <hr align="center" width="95%" size="50" color="#dddddd" />
                             </div>
->>>>>>> BackToChanges
                             <div class="d-flex flex-column justify-content-between align-items-stretch align-content-center"
                                  id="daily">
                                 <div class="d-flex justify-content-between align-items-center">
@@ -147,7 +143,7 @@
                             src="/static/assets/img/humans/${iconMan}.png" style="width:130px;"></div>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-3" style="height:682px;background-color:rgba(37,37,37,0.5);padding:10px;">
+            <div class="col-md-4 col-lg-3" style="height:682px;background-color:rgba(37,37,37,0.7);padding:10px;">
                 <h1 class="text-center text-light">${cityName}</h1>
                 <p class="text-center text-light">${currently.getTime()}</p>
                 <h1 class="text-center text-light" style="font-size:100px;">${currently.getTemperature()}º</h1>
